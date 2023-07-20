@@ -13,11 +13,17 @@ const slideList = [
   },
 ];
 
-//
 const time = 5000;
 let listIndex = 0;
 const img = document.querySelector("img.slider");
 const h1 = document.querySelector("h1.slider");
+
+//dots
+const one = document.querySelector("#one");
+const two = document.querySelector("#two");
+const three = document.querySelector("#three");
+
+const dots = [one, two, three];
 
 const changeSlide = () => {
   listIndex++;
@@ -28,4 +34,11 @@ const changeSlide = () => {
   h1.textContent = slideList[listIndex].text;
 };
 
+function handleSelection() {
+  dots.forEach((dot) => dot.classList.remove("active"));
+  this.classList.add("active");
+}
+
 setInterval(changeSlide, time);
+
+dots.forEach((dot) => dot.addEventListener("click", handleSelection));
