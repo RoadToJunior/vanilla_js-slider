@@ -18,8 +18,8 @@ let listIndex = 0;
 const img = document.querySelector("img.slider");
 const h1 = document.querySelector("h1.slider");
 
-//dots
-const dots = [document.querySelectorAll(".dots span")];
+//dots array
+const dots = [...document.querySelectorAll(".dots span")];
 
 const changeDot = () => {
   const activeDot = dots.findIndex((dot) => dot.classList.contains("active"));
