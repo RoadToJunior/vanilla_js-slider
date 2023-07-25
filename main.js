@@ -37,4 +37,21 @@ const changeSlide = () => {
   changeDot();
 };
 
+const keyChangeSlide = (e) => {
+  console.log(e.keyCode);
+  if (e.keyCode === 39) {
+    listIndex--;
+    if (listIndex < 0) {
+      listIndex = 0;
+    }
+  } else if (e.keyCode === 37) {
+    listIndex++; // Increment instead of decrement
+    if (listIndex >= slideList.length) {
+      listIndex = 0;
+    }
+  }
+  changeSlide();
+};
+
 setInterval(changeSlide, time);
+window.addEventListener("keydown", keyChangeSlide);
