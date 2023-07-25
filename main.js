@@ -38,19 +38,17 @@ const changeSlide = () => {
 };
 
 const keyChangeSlide = (e) => {
-  console.log(e.keyCode);
-  if (e.keyCode === 39) {
-    listIndex--;
-    if (listIndex < 0) {
-      listIndex = 0;
-    }
-  } else if (e.keyCode === 37) {
-    listIndex++; // Increment instead of decrement
+  if (e.keyCode === 37 || e.keyCode === 39) {
+    const flag = e.keyCode === 37 ? listIndex-- : listIndex++;
     if (listIndex >= slideList.length) {
       listIndex = 0;
+    } else if (listIndex < 0) {
+      listIndex = slideList.length - 1;
     }
   }
-  changeSlide();
+  img.src = slideList[listIndex].img;
+  h1.textContent = slideList[listIndex].text;
+  setTimeout(changeSlide, time);
 };
 
 setInterval(changeSlide, time);
