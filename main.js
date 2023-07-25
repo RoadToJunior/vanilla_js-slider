@@ -54,3 +54,5 @@ const keyChangeSlide = (e) => {
 
 let indexInterval = setInterval(changeSlide, time);
 window.addEventListener("keydown", keyChangeSlide);
+
+///
