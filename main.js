@@ -39,7 +39,7 @@ const changeSlide = () => {
 
 const keyChangeSlide = (e) => {
   if (e.keyCode === 37 || e.keyCode === 39) {
-    const flag = e.keyCode === 37 ? listIndex-- : listIndex++;
+    e.keyCode === 37 ? listIndex-- : listIndex++;
     if (listIndex >= slideList.length) {
       listIndex = 0;
     } else if (listIndex < 0) {
@@ -48,8 +48,9 @@ const keyChangeSlide = (e) => {
   }
   img.src = slideList[listIndex].img;
   h1.textContent = slideList[listIndex].text;
-  setTimeout(changeSlide, time);
+  changeDot();
+  indexInterval = setInterval(changeSlide, time);
 };
 
-setInterval(changeSlide, time);
+let indexInterval = setInterval(changeSlide, time);
 window.addEventListener("keydown", keyChangeSlide);
